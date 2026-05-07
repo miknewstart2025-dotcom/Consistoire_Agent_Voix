@@ -1,0 +1,13 @@
+livekit-agents[codecs]~=1.0
+livekit-plugins-anthropic~=1.0
+livekit-plugins-deepgram~=1.0
+livekit-plugins-elevenlabs~=1.0
+livekit-plugins-openai~=1.0
+livekit-plugins-silero~=1.0
+python-dotenv
+PyYAML
+streamlit
+voyageai
+numpy
+pdfplumber
+python-docx

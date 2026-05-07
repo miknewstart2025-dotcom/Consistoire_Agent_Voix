@@ -1,0 +1,19 @@
+{
+  "dispatchRule": {
+    "name": "tae-dispatch",
+    "trunkIds": ["ST_C8nBKNP5Cvpu"],
+    "rule": {
+      "dispatchRuleIndividual": {
+        "roomPrefix": "tae-"
+      }
+    },
+    "roomConfig": {
+      "agents": [
+        {
+          "agentName": "tae",
+          "metadata": "{\"use_case\":\"tae\"}"
+        }
+      ]
+    }
+  }
+}

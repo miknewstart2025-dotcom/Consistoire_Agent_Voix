@@ -1,0 +1,12 @@
+{
+  "trunk": {
+    "name": "laurent-outbound-trunk",
+    "address": "lkoutbound.pstn.twilio.com",
+    "numbers": [
+      "REPLACE WITH TWILIO NUMBER"
+    ],
+    "transport": "SIP_TRANSPORT_AUTO",
+    "auth_username": "REPLACE_WITH_TWILIO_SIP_USERNAME",
+    "auth_password": "REPLACE_WITH_TWILIO_SIP_PASSWORD"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "dispatchRule": {
+    "name": "consistoire-dispatch",
+    "trunkIds": ["ST_FrR6jC7jFisB"],
+    "rule": {
+      "dispatchRuleIndividual": {
+        "roomPrefix": "consistoire-"
+      }
+    },
+    "roomConfig": {
+      "agents": [
+        {
+          "agentName": "consistoire-laurent-local",
+          "metadata": "{\"use_case\":\"consistoire-paris\"}"
+        }
+      ]
+    }
+  }
+}

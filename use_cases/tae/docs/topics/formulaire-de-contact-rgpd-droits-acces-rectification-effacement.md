@@ -1,0 +1,17 @@
+---
+title: "Tribunal des Activités Économiques de Paris"
+url: https://www.tae-paris.org/fr/formulaire-de-contact---rgpd-droits-acces-rectification-effacement
+slug: formulaire-de-contact---rgpd-droits-acces-rectification-effacement
+category: topics
+scraped_at: 2026-04-26T20:35:09Z
+---
+
+# Tribunal des Activités Économiques de Paris
+
+## RGPD Droits accès-rectification-effacement
+
+Formulaire de contact - RGPD Droits accès-rectification-effacement
+
+Les informations saisies dans ce formulaire sont nécessaires au traitement et au suivi de votre message.  
+Vous disposez d’un droit d’accès, de rectification, d’effacement et de limitation conformément aux articles 15 et 18 du RGPD.  
+Pour l’exercer, utilisez ce formulaire de contact.

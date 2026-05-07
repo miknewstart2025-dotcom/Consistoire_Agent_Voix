@@ -1,0 +1,127 @@
+# securite — https://www.consistoire.org/securite/
+
+Source: https://www.consistoire.org/securite/
+
+Sécurité - Consistoire de Paris 
+- Consistoire de Paris Le conseil 
+- Organigramme Administratif 
+- Services 
+- J'adhère au Consistoire de Paris ! 
+- La donation 
+- Newsletter Newsletters 2026 
+- Archives 2019 à 2025 
+- S’abonner 
+- Emploi 
+- Confidentialité 
+- La Cacherout Les produits sélectionnés Liste des produits 
+- Informations importantes 
+- Produits supprimés 2025-2026 
+- Où trouver les marques distributeurs ? 
+- Poissons autorisés 
+- Commerces 
+- Téléchargements Pdf 
+- Les videos du Beth-Din 
+- Alertes 
+- Vie Juive Temps Juif Calendrier & horaires 5785 en Ile de France 
+- Chabbat 
+- Fêtes et Jeûnes 
+- Mémoire 
+- Israël 
+- Naissance 
+- Jeunesse E-talmud torah 
+- Centre Fleg 
+- Ecoles & Crèches 
+- La ‘Hazac 
+- Le Talmud Torah 
+- Mariage 
+- Médiation familiale 
+- S.A.V Mariage 
+- Divorce Chalom Bait 
+- Focus sur le pôle famille 
+- Conversion 
+- Handicap 
+- Statut personnel 
+- Hevra kadicha 
+- Rabbinat Les documents à télécharger en Pdf 
+- Organigramme Religieux 
+- Le corps rabbinique 
+- Aumôneries 
+- Enseignements Les cours de nos rabbins 
+- Les cours 2025 
+- Les cours 2024 
+- Les cours 2023 
+- Textes 
+- Bénédictions pour les malades 
+- Communautés Sécurité 
+- Mikvaot 
+- Communautés 
+- Salles communautaires 
+- Adresses Utiles 
+- Centre Européen du Judaïsme 
+- Mes démarches 
+- Dons 
+- &times; 
+- Consistoire de Paris Le conseil 
+- Organigramme Administratif 
+- Services 
+- J'adhère au Consistoire de Paris ! 
+- La donation 
+- Newsletter Newsletters 2026 
+- Archives 2019 à 2025 
+- S’abonner 
+- Emploi 
+- Confidentialité 
+- La Cacherout Les produits sélectionnés Liste des produits 
+- Informations importantes 
+- Produits supprimés 2025-2026 
+- Où trouver les marques distributeurs ? 
+- Poissons autorisés 
+- Commerces 
+- Téléchargements Pdf 
+- Les videos du Beth-Din 
+- Alertes 
+- Vie Juive Temps Juif Calendrier & horaires 5785 en Ile de France 
+- Chabbat 
+- Fêtes et Jeûnes 
+- Mémoire 
+- Israël 
+- Naissance 
+- Jeunesse E-talmud torah 
+- Centre Fleg 
+- Ecoles & Crèches 
+- La ‘Hazac 
+- Le Talmud Torah 
+- Mariage 
+- Médiation familiale 
+- S.A.V Mariage 
+- Divorce Chalom Bait 
+- Focus sur le pôle famille 
+- Conversion 
+- Handicap 
+- Statut personnel 
+- Hevra kadicha 
+- Rabbinat Les documents à télécharger en Pdf 
+- Organigramme Religieux 
+- Le corps rabbinique 
+- Aumôneries 
+- Enseignements Les cours de nos rabbins 
+- Les cours 2025 
+- Les cours 2024 
+- Les cours 2023 
+- Textes 
+- Bénédictions pour les malades 
+- Communautés Sécurité 
+- Mikvaot 
+- Communautés 
+- Salles communautaires 
+- Adresses Utiles 
+- Centre Européen du Judaïsme 
+- Mes démarches 
+- Dons 
+# Sécurité
+ 
+Depuis le début des années 2000, la Communauté juive d’Ile de France a été soumise à nombre d’agressions antisémites, tant physiques et verbales sur les personnes, que sur ses synagogues et centres communautaires. L’ACIP a donc décidé de réagir et de participer au renforcement des moyens mis à la disposition du Service de Protection de la Communauté Juive (SPCJ) .
+
+De plus, de nombreux bâtiments ont été rénovés et adaptés à de nouvelles normes de sécurité, avec mises en conformité des installations électriques et vidéo notamment. Ainsi, des systèmes de surveillance vidéo ont été installés aux abords des synagogues afin de dissuader d’éventuels agresseurs de passer à l’acte, les cassettes permettant ensuite de les identifier et de les arrêter.
+
+Les consignes de sécurité, dont celle, essentielle, de ne pas stationner devant les synagogues et centres communautaires, ont été affichées en bonne et due place. Nous comptons aujourd’hui sur vous pour nous aider dans ces efforts de sécurisation de nos communautés et vous demandons de ne pas manquer de nous signaler tout incident que vous auriez à mentionner et toute nouvelle idée qui nous permettrait d’accentuer encore nos efforts au service de nos fidèles.

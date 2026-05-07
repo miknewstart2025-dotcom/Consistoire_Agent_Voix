@@ -1,0 +1,406 @@
+{
+  "run_at": "2026-04-26T20:35:47Z",
+  "total": 523,
+  "written": 481,
+  "skipped": [
+    {
+      "url": "https://www.tae-paris.org/fr/actions-en-responsabilite",
+      "slug": "actions-en-responsabilite",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/affacturage",
+      "slug": "affacturage",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/administration-de-la-preuve-131",
+      "slug": "administration-de-la-preuve-131",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/assurance-rc",
+      "slug": "assurance-rc",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/assurance-vie",
+      "slug": "assurance-vie",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/au-fond",
+      "slug": "au-fond",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/avocats-du-tribunal-de-commerce-de-paris-119",
+      "slug": "avocats-du-tribunal-de-commerce-de-paris-119",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/cession-de-contrat",
+      "slug": "cession-de-contrat",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/commissaires-priseurs-judiciaires-122",
+      "slug": "commissaires-priseurs-judiciaires-122",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/conciliateurs-de-justice-123",
+      "slug": "conciliateurs-de-justice-123",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/contestation-serieuse-en-refere",
+      "slug": "contestation-serieuse-en-refere",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/contrats-de-biere",
+      "slug": "contrats-de-biere",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/credit-bail",
+      "slug": "credit-bail",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/date-de-cessation-des-paiements-et-periode-suspecte",
+      "slug": "date-de-cessation-des-paiements-et-periode-suspecte",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/couts-de-procedure-134",
+      "slug": "couts-de-procedure-134",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/defaut-de-pouvoir-du-juge",
+      "slug": "defaut-de-pouvoir-du-juge",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/droit-applicable-128",
+      "slug": "droit-applicable-128",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/emprunts--dont-obligations-",
+      "slug": "emprunts--dont-obligations-",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/extension-de-procedure",
+      "slug": "extension-de-procedure",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/experts-du-tribunal-de-commerce-de-paris-121",
+      "slug": "experts-du-tribunal-de-commerce-de-paris-121",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/huissier-du-tribunal-de-commerce-de-paris-120",
+      "slug": "huissier-du-tribunal-de-commerce-de-paris-120",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/interruption",
+      "slug": "interruption",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/mandat--dont-mandat-apparent-",
+      "slug": "mandat--dont-mandat-apparent-",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/mandataire-de-justice-116",
+      "slug": "mandataire-de-justice-116",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/mise-en-oeuvre-de-cautionnement",
+      "slug": "mise-en-oeuvre-de-cautionnement",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/note-en-delibere",
+      "slug": "note-en-delibere",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/opposition-a-injonction-de-payer",
+      "slug": "opposition-a-injonction-de-payer",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/ouverture-de-la-procedure",
+      "slug": "ouverture-de-la-procedure",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/pecuniaire",
+      "slug": "pecuniaire",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/personnelle",
+      "slug": "personnelle",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/plans-de-cession",
+      "slug": "plans-de-cession",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/plates-formes-internet",
+      "slug": "plates-formes-internet",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/poursuite-ou-resiliation-de-contrat",
+      "slug": "poursuite-ou-resiliation-de-contrat",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/pouvoirs-du-juge-du-controle",
+      "slug": "pouvoirs-du-juge-du-controle",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/prevention-386",
+      "slug": "prevention-386",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/principe-de-la-contradiction",
+      "slug": "principe-de-la-contradiction",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/prevention-des-difficultes",
+      "slug": "prevention-des-difficultes",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/projets-informatiques",
+      "slug": "projets-informatiques",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/publicite---spectacle---media",
+      "slug": "publicite---spectacle---media",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/responsabilite-delictuelle",
+      "slug": "responsabilite-delictuelle",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/revendications",
+      "slug": "revendications",
+      "skipped_reason": "empty_body"
+    },
+    {
+      "url": "https://www.tae-paris.org/fr/sous-traitance",
+      "slug": "sous-traitance",
+      "skipped_reason": "empty_body"
+    }
+  ],
+  "errors": [],
+  "retries": [
+    {
+      "recovered": [
+        {
+          "url": "https://www.tae-paris.org/fr/actions-en-responsabilite",
+          "path": "topics/actions-en-responsabilite.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/affacturage",
+          "path": "topics/affacturage.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/assurance-rc",
+          "path": "topics/assurance-rc.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/assurance-vie",
+          "path": "topics/assurance-vie.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/au-fond",
+          "path": "topics/au-fond.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/cession-de-contrat",
+          "path": "topics/cession-de-contrat.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/contestation-serieuse-en-refere",
+          "path": "judgments/contestation-serieuse-en-refere.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/contrats-de-biere",
+          "path": "topics/contrats-de-biere.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/credit-bail",
+          "path": "topics/credit-bail.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/date-de-cessation-des-paiements-et-periode-suspecte",
+          "path": "topics/date-de-cessation-des-paiements-et-periode-suspecte.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/defaut-de-pouvoir-du-juge",
+          "path": "topics/defaut-de-pouvoir-du-juge.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/emprunts--dont-obligations-",
+          "path": "topics/emprunts-dont-obligations.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/extension-de-procedure",
+          "path": "topics/extension-de-procedure.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/interruption",
+          "path": "topics/interruption.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/mandat--dont-mandat-apparent-",
+          "path": "topics/mandat-dont-mandat-apparent.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/mise-en-oeuvre-de-cautionnement",
+          "path": "topics/mise-en-oeuvre-de-cautionnement.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/note-en-delibere",
+          "path": "topics/note-en-delibere.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/opposition-a-injonction-de-payer",
+          "path": "topics/opposition-a-injonction-de-payer.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/ouverture-de-la-procedure",
+          "path": "topics/ouverture-de-la-procedure.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/pecuniaire",
+          "path": "topics/pecuniaire.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/personnelle",
+          "path": "topics/personnelle.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/plans-de-cession",
+          "path": "topics/plans-de-cession.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/plates-formes-internet",
+          "path": "topics/plates-formes-internet.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/poursuite-ou-resiliation-de-contrat",
+          "path": "topics/poursuite-ou-resiliation-de-contrat.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/pouvoirs-du-juge-du-controle",
+          "path": "topics/pouvoirs-du-juge-du-controle.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/principe-de-la-contradiction",
+          "path": "topics/principe-de-la-contradiction.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/prevention-des-difficultes",
+          "path": "topics/prevention-des-difficultes.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/projets-informatiques",
+          "path": "topics/projets-informatiques.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/publicite---spectacle---media",
+          "path": "topics/publicite-spectacle-media.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/responsabilite-delictuelle",
+          "path": "topics/responsabilite-delictuelle.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/revendications",
+          "path": "topics/revendications.md"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/sous-traitance",
+          "path": "topics/sous-traitance.md"
+        }
+      ],
+      "still_empty": [],
+      "duplicates": [
+        {
+          "url": "https://www.tae-paris.org/fr/administration-de-la-preuve-131",
+          "slug": "administration-de-la-preuve-131",
+          "canonical_slug": "administration-de-la-preuve"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/avocats-du-tribunal-de-commerce-de-paris-119",
+          "slug": "avocats-du-tribunal-de-commerce-de-paris-119",
+          "canonical_slug": "avocats-du-tribunal-de-commerce-de-paris"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/commissaires-priseurs-judiciaires-122",
+          "slug": "commissaires-priseurs-judiciaires-122",
+          "canonical_slug": "commissaires-priseurs-judiciaires"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/conciliateurs-de-justice-123",
+          "slug": "conciliateurs-de-justice-123",
+          "canonical_slug": "conciliateurs-de-justice"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/couts-de-procedure-134",
+          "slug": "couts-de-procedure-134",
+          "canonical_slug": "couts-de-procedure"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/droit-applicable-128",
+          "slug": "droit-applicable-128",
+          "canonical_slug": "droit-applicable"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/experts-du-tribunal-de-commerce-de-paris-121",
+          "slug": "experts-du-tribunal-de-commerce-de-paris-121",
+          "canonical_slug": "experts-du-tribunal-de-commerce-de-paris"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/huissier-du-tribunal-de-commerce-de-paris-120",
+          "slug": "huissier-du-tribunal-de-commerce-de-paris-120",
+          "canonical_slug": "huissier-du-tribunal-de-commerce-de-paris"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/mandataire-de-justice-116",
+          "slug": "mandataire-de-justice-116",
+          "canonical_slug": "mandataire-de-justice"
+        },
+        {
+          "url": "https://www.tae-paris.org/fr/prevention-386",
+          "slug": "prevention-386",
+          "canonical_slug": "prevention"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

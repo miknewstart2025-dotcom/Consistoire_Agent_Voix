@@ -1,0 +1,14 @@
+.venv/
+.env.local
+.env
+__pycache__/
+*.pyc
+.DS_Store
+.claude/
+zoom_trunk.json
+summaries/
+use_cases/*.memory.md
+use_cases/*/.index/
+use_cases/*/.graph/
+*.pdf
+*.csv

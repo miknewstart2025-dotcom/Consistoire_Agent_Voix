@@ -1,0 +1,201 @@
+---
+title: "Moteur de recherche"
+url: https://www.tae-paris.org/fr/moteur-de-recherche
+slug: moteur-de-recherche
+category: topics
+scraped_at: 2026-04-26T20:35:25Z
+---
+
+# Moteur de recherche
+
+La commission juridique du Tribunal des Activités Économiques de Paris présente ici, en synthèse, dans le domaine du contentieux, les solutions dégagées par le tribunal, et leur motivation, dans un certain nombre de litiges qui lui ont été soumis.
+
+Les jugements présentés ont été sélectionnés en raison du caractère original du contentieux concerné ou, au contraire, représenter le type de solution retenue sur des contentieux récurrents. Veuillez choisir une rubrique pour accéder au sommaire des thèmes abordés pour la catégorie sélectionnée.
+
+- **ASSURANCE**
+  - Assurance dommages dont perte d’exploitation
+  - Assurance vie
+  - Assurance RC
+  - Clause d’exclusion
+  - Courtage
+  - Déclaration inexacte de l’assuré
+- **BANQUE**
+  - Cautionnement
+  - Crédit-bail
+  - Litige sur le taux d’emprunt
+  - Moyens de paiement
+  - Recouvrement
+  - Responsabilité
+- **COMPETENCE**
+  - Arbitrage
+  - Clause attributive
+  - Compétence d’attribution
+  - Compétence internationale
+  - Compétence territoriale
+  - Opposition à injonction de payer
+  - Recevabilité de l’exception
+  - Référé
+- **CONCURRENCE**
+  - Concurrence déloyale (dont parasitisme)
+  - Pratiques anticoncurrentielles
+  - Pratiques restrictives
+  - Préjudice (évaluation)
+- **CONSTRUCTION**
+  - Actions en responsabilité
+  - Contrats de construction
+  - Décompte général et définitif (DGD)
+  - Garantie décennale
+  - Marchés à forfait
+  - Réception, réserves et levée des réserves
+  - Sous-traitance
+- **CONTRATS ET OBLIGATIONS**
+  - Cession de contrat
+  - Clause de non-concurrence
+  - Clause pénale
+  - Code de la consommation
+  - Contrat de fait
+  - Déséquilibre significatif
+  - Dol
+  - Exécution forcée
+  - Force majeure / Imprévision
+  - Illicéité
+  - Inexécution
+  - Novation – Substitution de débiteur
+  - Nullité-caducité
+  - Obligation de moyens ou de résultat
+  - Offre acceptée
+  - Résolution
+  - Rupture abusive de pourparlers
+  - Sous-traitance
+  - Tacite reconduction
+  - Vices du consentement (dont dol)
+- **DISTRIBUTION ET FRANCHISE**
+  - Agent commercial/commissionnaire
+  - Contrats de distribution
+  - Contrats de franchise
+  - Distribution sélective
+- **DROIT DES SOCIETES**
+  - Abus de majorité/minorité
+  - Action ut singuli
+  - Annulation de décisions sociales
+  - Assemblées générales
+  - Augmentation de capital
+  - Augmentation/réduction de capital
+  - Autonomie de la personne morale
+  - Cession de droits sociaux
+  - Clause d’agrément
+  - Conventions réglementées
+  - Dirigeants sociaux
+  - Dissolution
+  - Dividendes
+  - Exclusion d’un associé
+  - Expertise de gestion
+  - Garantie d’actif-passif
+  - Liquidation amiable
+  - Mandataire ad hoc
+  - Pactes d’associés
+  - Sociétés cotées
+- **ECONOMIE NUMERIQUE ET MEDIAS**
+  - Cession de licence
+  - Plates-formes internet
+  - Projets informatiques
+  - Publicité – Spectacle – Media
+  - Télécommunications
+- **EXCEPTIONS (AUTRES QU’INCOMPETENCE)**
+  - Nullité de l’assignation
+- **FINANCEMENTS NON BANCAIRES**
+  - Affacturage
+  - Emprunts (dont obligations)
+  - Intermédiaires
+  - Location financière
+  - Marchés financiers
+- **FONDS DE COMMERCE**
+  - Cession de fonds de commerce
+  - Fonds de commerce
+  - Location gérance
+- **GARANTIES**
+  - Cautionnement
+  - Contrats de bière
+  - Garanties à première demande
+  - Porte-fort
+  - Sûretés
+- **INTERRUPTION, SUSPENSION ET EXTINCTION D’INSTANCE**
+  - Extinction, dont péremption d’instance
+  - Interruption
+  - Suspension
+- **IRRECEVABILITE**
+  - Action paulienne
+  - Autorité de la chose jugée
+  - Contribution pour la justice économique
+  - Défaut d’intérêt ou de qualité à agir
+  - Défaut de conciliation/médiation préalable
+  - Défendeur en procédure collective
+  - Demande additionnelle
+  - Divers
+  - Expertise de gestion
+  - Il n’y a lieu à référé
+  - Immunité de juridiction
+  - Prescription et forclusion
+  - Référé d'heure à heure
+  - Renonciation à recours
+  - Transaction
+- **LOI APPLICABLE**
+  - Garantie à première demande
+  - Responsabilité délictuelle
+- **MANDAT (dont mandat apparent)**
+  - MANDAT (dont mandat apparent)
+- **MESURES D’INSTRUCTION**
+  - Au fond
+  - Défaut de versement de la provision
+  - En référé
+  - Extension de la mission
+  - Levée de séquestre
+  - Pouvoirs du juge du contrôle
+- **PREUVE**
+  - Créance
+  - Manquement contractuel
+- **PREVENTION**
+- **PROCEDURE (DIVERS)**
+  - Communication de pièces
+  - Dépaysement
+  - Divers
+  - Médiation
+  - Note en délibéré
+  - Oralité de la procédure
+  - Principe de la contradiction
+- **PROCEDURES COLLECTIVES**
+  - Arrêt des poursuites et créances postérieures
+  - Cession d’actif
+  - Contestation de créance
+  - Date de cessation des paiements et période suspecte
+  - Déclaration de créance
+  - Extension de procédure
+  - Ouverture de la procédure
+  - Plans de cession
+  - Plans de continuation ou de sauvegarde
+  - Poursuite ou résiliation de contrat
+  - Revendications
+  - Tierce opposition
+- **RESPONSABILITE (HORS CONSTRUTION)**
+  - Préjudice (évaluation)
+  - Responsabilité délictuelle
+  - Responsabilité délictuelle pour manquement contractuel
+- **RUPTURE BRUTALE**
+  - Cause de la rupture
+  - Degré de dépendance
+  - Durée du préavis
+  - Préjudice (évaluation)
+  - Relation commerciale établie
+- **SANCTIONS**
+  - Pécuniaire
+  - Personnelle
+- **SECRET DES AFFAIRES**
+  - Instance au fond
+  - Levée de séquestre
+  - Secret bancaire
+- **TRANSPORTS**
+  - Commissionnaire de transport
+  - Maritime
+  - Routier
+
+Veuillez cliquer sur une catégorie pour faire apparaître le sommaire des fiches indexées pour la catégorie sélectionnée
