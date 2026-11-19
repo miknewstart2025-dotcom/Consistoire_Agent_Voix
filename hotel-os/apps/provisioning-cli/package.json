@@ -1,0 +1,12 @@
+{
+  "name": "@hotel-os/provisioning-cli",
+  "version": "0.1.0",
+  "private": true,
+  "bin": { "hotelos-provision": "dist/cli.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "start": "node dist/cli.js"
+  }
+}

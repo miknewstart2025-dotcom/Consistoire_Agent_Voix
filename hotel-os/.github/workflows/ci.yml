@@ -1,0 +1,48 @@
+# Tests only – no deployment from CI.
+name: ci
+on: [push, pull_request]
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_HOST_AUTH_METHOD: trust }
+        ports: ["54329:5432"]
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - name: roles
+        run: |
+          psql -h 127.0.0.1 -p 54329 -U postgres -c "create role hotelos_owner login password 'hotelos_owner' createdb" \
+            -c "create role hotelos_app nologin" -c "create role hotelos_api login password 'hotelos_api' in role hotelos_app"
+      - run: pnpm -r --filter "./packages/**" run build
+      - run: pnpm --filter @hotel-os/policy-engine test
+      - run: pnpm --filter @hotel-os/api test
+      - run: pnpm --filter @hotel-os/provisioning-cli test
+      - run: pnpm --filter @hotel-os/manager build
+  android-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: "8.14.3" }
+      - run: gradle :dpc-core:test :iptv-core:test
+        working-directory: android
+  android-apks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: "8.14.3" }
+      - run: gradle assembleDebug
+        working-directory: android
