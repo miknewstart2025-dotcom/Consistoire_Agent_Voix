@@ -57,7 +57,7 @@ class Controller private constructor(private val ctx: Context) {
     val identity = KeystoreIdentity()
     val platform = AndroidDevicePlatform(ctx)
     private val api = ApiClient(http, { prefs.serverUrl ?: error("server not configured") }, { prefs.deviceId }, identity)
-    private val reconciler = Reconciler(platform, ApkInstaller(ctx, http)) { Log.i(tag, it) }
+    private val reconciler = Reconciler(platform, ApkInstaller(ctx, http) { runCatching { "Bearer " + api.token() }.getOrNull() }, { Log.i(tag, it) })
     private val store = PolicyStore(File(ctx.filesDir, "policy.json"))
     private val journal = InMemoryCommandJournal()
     private val syncLock = Mutex()

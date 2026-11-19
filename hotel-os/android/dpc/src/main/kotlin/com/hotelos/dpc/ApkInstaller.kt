@@ -24,7 +24,12 @@ import java.util.concurrent.ConcurrentHashMap
  * against the signed policy. Download resumes after interruption (HTTP Range).
  * [HW-REQUIRED] silent install behaviour must be confirmed per certified model.
  */
-class ApkInstaller(private val context: Context, private val http: OkHttpClient) : PackageInstallerPort {
+class ApkInstaller(
+    private val context: Context,
+    private val http: OkHttpClient,
+    /** Device JWT for downloads from the HOTEL OS API (/device/v1/apk/…). */
+    private val authorization: () -> String?,
+) : PackageInstallerPort {
     private val dir = File(context.cacheDir, "apk").apply { mkdirs() }
 
     override suspend fun installOrUpdate(packageName: String, artifact: ApkArtifact): Result<Unit> = withContext(Dispatchers.IO) {
@@ -53,7 +58,10 @@ class ApkInstaller(private val context: Context, private val http: OkHttpClient)
     private fun download(url: String, file: File, expectedSize: Long) {
         val start = if (file.exists()) file.length() else 0L
         if (start == expectedSize) return
-        val req = Request.Builder().url(url).apply { if (start > 0) header("Range", "bytes=$start-") }.build()
+        val req = Request.Builder().url(url).apply {
+            if (start > 0) header("Range", "bytes=$start-")
+            authorization()?.let { header("Authorization", it) }
+        }.build()
         http.newCall(req).execute().use { resp ->
             if (!resp.isSuccessful) error("download failed: HTTP ${resp.code}")
             val append = resp.code == 206

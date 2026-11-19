@@ -5,7 +5,7 @@
  */
 import { type DeviceCommand, EffectivePolicy, type SignedPolicy, WsServerMessage } from "@hotel-os/protocol";
 import { SignJWT } from "jose";
-import { createPublicKey, generateKeyPairSync, type KeyObject, verify } from "node:crypto";
+import { createHash, createPublicKey, generateKeyPairSync, type KeyObject, verify } from "node:crypto";
 import WebSocket from "ws";
 
 export interface SimStats {
@@ -31,10 +31,13 @@ export class SimDevice {
   deviceId?: string;
   pairingCode?: string;
   private policyKeys: { kid: string; spki: string }[] = [];
-  private policy?: EffectivePolicy;
+  policy?: EffectivePolicy;
   private ws?: WebSocket;
   private state = new Map(SIM_PACKAGES.map((p) => [p.packageName, { suspended: false, hidden: false }]));
   readonly stats: SimStats = { commands: 0, policies: 0, errors: 0, messages: [] };
+  /** Packages "installed" by downloading their APK (sha256-verified, never executed). */
+  readonly installed = new Map<string, number>();
+  installErrors: { key: string; message: string }[] = [];
 
   constructor(private readonly baseUrl: string, private readonly name: string) {
     const kp = generateKeyPairSync("ec", { namedCurve: "P-256" });
@@ -103,7 +106,26 @@ export class SimDevice {
         }
       }
     }
+    await this.installArtifacts();
     await this.report();
+  }
+
+  /** Real download of deployed APKs through the device endpoint, verified like the DPC does (sha256). */
+  private async installArtifacts() {
+    this.installErrors = [];
+    for (const a of this.policy?.apps ?? []) {
+      if (!a.artifact || a.state !== "ALLOWED") continue;
+      if ((this.installed.get(a.packageName) ?? 0) >= a.artifact.versionCode) continue;
+      try {
+        const res = await fetch(a.artifact.url, { headers: { authorization: `Bearer ${await this.token()}` } });
+        if (!res.ok) throw new Error(`download HTTP ${res.status}`);
+        const bytes = Buffer.from(await res.arrayBuffer());
+        if (createHash("sha256").update(bytes).digest("hex") !== a.artifact.sha256) throw new Error("sha256 mismatch");
+        this.installed.set(a.packageName, a.artifact.versionCode);
+      } catch (e) {
+        this.installErrors.push({ key: `apps.${a.packageName}.install`, message: `SIMULATED install failed: ${(e as Error).message}` });
+      }
+    }
   }
 
   async report() {
@@ -111,13 +133,16 @@ export class SimDevice {
     await this.call("/device/v1/state", {
       body: {
         policyVersionApplied: this.policy.version,
-        reconcileErrors: [{ key: "simulator", message: "SIMULATED DEVICE – no real Android enforcement" }],
+        reconcileErrors: [{ key: "simulator", message: "SIMULATED DEVICE – no real Android enforcement" }, ...this.installErrors],
         isDeviceOwner: true,
         kioskActive: true,
         launcherHealthy: true,
         dpcVersionCode: 1,
         launcherVersionCode: 1,
-        apps: SIM_PACKAGES.map((p) => ({ ...p, versionCode: 1, enabled: true, ...this.state.get(p.packageName)!, hasLauncherEntry: true })),
+        apps: [
+          ...SIM_PACKAGES.map((p) => ({ ...p, versionCode: 1, enabled: true, ...this.state.get(p.packageName)!, hasLauncherEntry: true })),
+          ...[...this.installed].map(([packageName, versionCode]) => ({ packageName, versionCode, system: false, enabled: true, suspended: false, hidden: false, hasLauncherEntry: true })),
+        ],
         inventoryIsDelta: false,
         storageFreeMb: 4096,
         ramFreeMb: 900,

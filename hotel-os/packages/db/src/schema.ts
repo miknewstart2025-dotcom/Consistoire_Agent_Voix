@@ -493,3 +493,44 @@ export const epgPrograms = pgTable(
   },
   (t) => [index("epg_source_channel_start_idx").on(t.sourceId, t.epgId, t.start)],
 );
+
+// ---------------------------------------------------------------- rollouts (APK deployments)
+export const rolloutStatusEnum = pgEnum("rollout_status", ["RUNNING", "PAUSED", "COMPLETED", "CANCELLED"]);
+export const rolloutTargetStateEnum = pgEnum("rollout_target_state", ["WAITING", "TARGETED", "SUCCEEDED", "FAILED", "SKIPPED_INCOMPATIBLE"]);
+
+export const rollouts = pgTable("rollouts", {
+  id: id(),
+  /** null = platform-wide rollout (DEPLOY TO ALL HOTELS) */
+  organizationId: uuid("organization_id").references(() => organizations.id, { onDelete: "cascade" }),
+  appVersionId: uuid("app_version_id").notNull().references(() => appVersions.id, { onDelete: "cascade" }),
+  packageName: text("package_name").notNull(),
+  scopeType: text("scope_type").notNull(), // ALL_HOTELS | ORG | HOTEL | GROUP | ROOM | DEVICE
+  scopeId: text("scope_id"),
+  /** Cumulative percentages, e.g. [5, 25, 100]. */
+  rings: integer("rings").array().notNull(),
+  currentRing: integer("current_ring").notNull().default(0),
+  status: rolloutStatusEnum("status").notNull().default("RUNNING"),
+  /** Auto-pause when failures / finished targets exceed this percentage. */
+  failureThresholdPct: integer("failure_threshold_pct").notNull().default(10),
+  autoAdvance: boolean("auto_advance").notNull().default(false),
+  /** Updates of an already installed app wait for the hotel maintenance window. */
+  updateWindow: text("update_window").notNull().default("MAINTENANCE"),
+  pausedReason: text("paused_reason"),
+  createdBy: uuid("created_by").notNull(),
+  createdAt: created(),
+  updatedAt: updated(),
+});
+
+export const rolloutTargets = pgTable(
+  "rollout_targets",
+  {
+    rolloutId: uuid("rollout_id").notNull().references(() => rollouts.id, { onDelete: "cascade" }),
+    organizationId: orgId(),
+    deviceId: uuid("device_id").notNull().references(() => devices.id, { onDelete: "cascade" }),
+    ring: integer("ring").notNull(),
+    state: rolloutTargetStateEnum("state").notNull().default("WAITING"),
+    message: text("message"),
+    updatedAt: updated(),
+  },
+  (t) => [primaryKey({ columns: [t.rolloutId, t.deviceId] }), index("rollout_targets_device_idx").on(t.deviceId)],
+);

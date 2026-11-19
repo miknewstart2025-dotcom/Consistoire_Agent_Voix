@@ -17,7 +17,10 @@ export interface ResolveInput {
   layers: ConfigLayer[];
   entitlements: Entitlements;
   capabilities: ModelCapabilities;
-  /** Resolved artifact per package for apps HOTEL OS installs (catalog / first-party). */
+  /**
+   * APKs deployed to THIS device (from rollouts). A deployed package absent from configuration is
+   * added as ALLOWED; an explicit configuration (e.g. SUSPENDED by the hotel) always wins.
+   */
   artifacts: Record<string, ApkArtifact>;
 }
 
@@ -72,6 +75,9 @@ export function resolveEffectivePolicy(input: ResolveInput): ResolveOutput {
   }
   if (!iptvEnabled && appsCfg[IPTV_PACKAGE]?.state === "ALLOWED") {
     appsCfg[IPTV_PACKAGE] = { ...appsCfg[IPTV_PACKAGE], state: "SUSPENDED" };
+  }
+  for (const pkg of Object.keys(input.artifacts)) {
+    if (!appsCfg[pkg]) appsCfg[pkg] = { state: "ALLOWED", visibleInLauncher: true, order: 50, cleanup: "KEEP" };
   }
   const apps: AppPolicy[] = [];
   for (const [pkg, a] of Object.entries(appsCfg)) {

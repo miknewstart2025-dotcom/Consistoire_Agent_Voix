@@ -135,6 +135,25 @@ async function main() {
   await sleep(5500); // device page auto-refresh shows SUCCEEDED
   await shot("05-device");
 
+  step("APK catalog: upload a real signed APK, deploy it to the hotel, the box downloads it");
+  await page.goto("http://localhost:3000/catalog");
+  await page.waitForSelector("#cat option", { state: "attached" });
+  await page.selectOption("#cat", { label: "Groupe Démo" });
+  await page.getByLabel("Fichier APK").setInputFiles(path.join(root, "apps/api/test/fixtures/fixture-v91.apk"));
+  await page.getByText("Je certifie").click();
+  await page.getByRole("button", { name: "Importer" }).click();
+  await page.waitForSelector("text=analysée et stockée");
+  await page.getByRole("button", { name: "Déployer" }).click();
+  await page.waitForSelector("#scope option:has-text('Hôtel · Hôtel Démo Paris')", { state: "attached" });
+  await page.selectOption("#scope", { label: "Hôtel · Hôtel Démo Paris" });
+  await page.fill("#rings", "100");
+  await page.getByText("Lancer le déploiement").click();
+  await page.waitForURL("**/rollouts/**");
+  for (let i = 0; i < 50 && !sim.installed.has("io.appium.settings"); i++) await sleep(100);
+  if (sim.installed.get("io.appium.settings") !== 91) { await shot("07-rollout-debug"); throw new Error(`simulated box did not download the deployed APK: ${JSON.stringify({ stats: sim.stats, errs: sim.installErrors, policyApps: sim.policy?.apps.map((a) => [a.packageName, a.state, a.artifact?.url]) })}`); }
+  await page.waitForSelector("text=· COMPLETED", { timeout: 15000 });
+  await shot("07-rollout");
+
   step("check-out → cleanup report");
   await page.goto("http://localhost:3000/hotels");
   await page.getByText("Hôtel Démo Paris").click();

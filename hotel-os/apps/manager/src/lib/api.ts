@@ -33,6 +33,20 @@ export async function api<T = unknown>(path: string, init: { method?: string; bo
   return body as T;
 }
 
+/** Raw binary upload (APK). */
+export async function uploadApk<T>(path: string, file: File): Promise<T> {
+  const token = session.get();
+  const res = await fetch(`${API_URL}${path}`, {
+    method: "POST",
+    headers: { "content-type": "application/vnd.android.package-archive", "x-distribution-rights": "attested", ...(token ? { authorization: `Bearer ${token}` } : {}) },
+    body: file,
+  });
+  const text = await res.text();
+  const body = text ? JSON.parse(text) : null;
+  if (!res.ok) throw new ApiError(res.status, body);
+  return body as T;
+}
+
 export function errorText(e: unknown): string {
   if (e instanceof ApiError) {
     const b = e.body as { code?: string; message?: string; issues?: { path: string; message: string }[] } | null;

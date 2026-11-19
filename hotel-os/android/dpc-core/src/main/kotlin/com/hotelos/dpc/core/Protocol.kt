@@ -30,6 +30,8 @@ data class ApkArtifact(
     val sha256: String,
     val signerSha256: String,
     val sizeBytes: Long,
+    /** MAINTENANCE: updates of an installed app wait for the hotel maintenance window. */
+    val updateWindow: String = "MAINTENANCE",
 )
 
 @Serializable

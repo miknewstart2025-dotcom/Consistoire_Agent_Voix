@@ -8,7 +8,7 @@ import {
   type ResolveOutput,
 } from "@hotel-os/policy-engine";
 import { type ApkArtifact, EffectivePolicy, type Language, SUPPORTED_LANGUAGES, type SignedPolicy } from "@hotel-os/protocol";
-import { and, desc, eq, inArray, isNull, or } from "drizzle-orm";
+import { and, desc, eq, inArray, or } from "drizzle-orm";
 import { createHash } from "node:crypto";
 import { DB } from "../common/db.module";
 import { APP_CONFIG, type AppConfig } from "../config";
@@ -17,6 +17,8 @@ import { SigningService } from "./signing.service";
 
 const SYSTEM: TenantContext = { orgIds: [], platform: true };
 const UNKNOWN_MODEL_CAPS: ModelCapabilities = { lockTaskSupported: false, persistentHomeSupported: false };
+
+export type ArtifactResolver = (tx: Db, device: typeof schema.devices.$inferSelect, groupIds: string[]) => Promise<Record<string, ApkArtifact>>;
 
 export type ScopeRef = { scopeType: ConfigLayer["scopeType"]; scopeId: string };
 
@@ -107,7 +109,7 @@ export class PolicyService {
       if (m) capabilities = { ...UNKNOWN_MODEL_CAPS, ...(m.capabilities as Partial<ModelCapabilities>) };
     }
 
-    const artifacts = await this.publishedArtifacts(tx, device.organizationId);
+    const artifacts = await this.artifactResolver(tx, device, groups.map((g) => g.id));
     return resolveEffectivePolicy({
       deviceId,
       version,
@@ -119,30 +121,10 @@ export class PolicyService {
     });
   }
 
-  /** Latest PUBLISHED version per package visible to the org (org catalog overrides platform catalog). */
-  private async publishedArtifacts(tx: Db, orgId: string): Promise<Record<string, ApkArtifact>> {
-    const rows = await tx
-      .select({ app: schema.apps, v: schema.appVersions })
-      .from(schema.appVersions)
-      .innerJoin(schema.apps, eq(schema.apps.id, schema.appVersions.appId))
-      .where(and(eq(schema.appVersions.status, "PUBLISHED"), or(isNull(schema.apps.organizationId), eq(schema.apps.organizationId, orgId))))
-      .orderBy(desc(schema.appVersions.versionCode));
-    const out: Record<string, ApkArtifact & { org: boolean }> = {};
-    for (const { app, v } of rows) {
-      const isOrg = app.organizationId !== null;
-      const cur = out[app.packageName];
-      if (cur && (cur.org || !isOrg)) continue;
-      out[app.packageName] = {
-        versionCode: v.versionCode,
-        versionName: v.versionName,
-        url: new URL(v.objectKey, this.cfg.PUBLIC_DOWNLOAD_BASE).toString(),
-        sha256: v.sha256,
-        signerSha256: v.signerSha256,
-        sizeBytes: v.sizeBytes,
-        org: isOrg,
-      };
-    }
-    return Object.fromEntries(Object.entries(out).map(([k, { org: _o, ...a }]) => [k, a]));
+  private artifactResolver: ArtifactResolver = async () => ({});
+  /** Injected by RolloutsService: which APKs this device must have (avoids a module cycle). */
+  setArtifactResolver(fn: ArtifactResolver) {
+    this.artifactResolver = fn;
   }
 
   /**

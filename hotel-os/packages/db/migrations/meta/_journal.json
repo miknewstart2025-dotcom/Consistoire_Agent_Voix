@@ -29,6 +29,20 @@
       "when": 1795108154999,
       "tag": "0003_iptv_rls",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795123523993,
+      "tag": "0004_rollouts",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1795123524754,
+      "tag": "0005_rollouts_rls",
+      "breakpoints": true
     }
   ]
 }

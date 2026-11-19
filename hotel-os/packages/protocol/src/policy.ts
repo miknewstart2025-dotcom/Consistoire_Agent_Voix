@@ -48,6 +48,11 @@ export const ApkArtifact = z.object({
   /** SHA-256 of the signing certificate. Device refuses install if mismatched. */
   signerSha256: z.string().regex(/^[a-f0-9]{64}$/),
   sizeBytes: z.number().int().nonnegative(),
+  /**
+   * MAINTENANCE: an update of an already installed app waits for the hotel maintenance window
+   * (first installs are immediate). IMMEDIATE: install as soon as received.
+   */
+  updateWindow: z.enum(["IMMEDIATE", "MAINTENANCE"]).default("MAINTENANCE"),
 });
 export type ApkArtifact = z.infer<typeof ApkArtifact>;
 

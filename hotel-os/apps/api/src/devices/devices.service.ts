@@ -6,6 +6,7 @@ import { createHash, createPublicKey, randomBytes, randomInt } from "node:crypto
 import { AuditService } from "../common/audit.service";
 import { DB } from "../common/db.module";
 import { APP_CONFIG, type AppConfig } from "../config";
+import { RolloutsService } from "../catalog/rollouts.service";
 import { PolicyService } from "../policy/policy.service";
 import { SigningService } from "../policy/signing.service";
 import type { DevicePrincipal } from "./device-auth.service";
@@ -25,6 +26,7 @@ export class DevicesService {
     private readonly audit: AuditService,
     private readonly policy: PolicyService,
     private readonly signing: SigningService,
+    private readonly rollouts: RolloutsService,
   ) {}
 
   async createEnrollmentToken(ctx: TenantContext, orgId: string, hotelId: string, maxUses: number, ttlHours: number, userId: string) {
@@ -217,6 +219,10 @@ export class DevicesService {
           });
       }
     });
+  }
+
+  async touchAfterState(dev: DevicePrincipal, s: DeviceStateReport) {
+    await this.rollouts.onDeviceState(dev.deviceId, s.apps, s.reconcileErrors, s.inventoryIsDelta);
   }
 
   async touch(deviceId: string) {

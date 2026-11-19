@@ -1,5 +1,16 @@
 package com.hotelos.dpc.core
 
+object MaintenanceWindows {
+    /** Window "HH:MM"–"HH:MM" in the hotel time zone; may wrap past midnight (e.g. 23:00–05:00). */
+    fun isOpen(w: MaintenanceWindow, tz: String, at: java.time.Instant): Boolean {
+        val zone = runCatching { java.time.ZoneId.of(tz) }.getOrDefault(java.time.ZoneOffset.UTC)
+        val t = at.atZone(zone).toLocalTime()
+        val start = java.time.LocalTime.parse(w.start)
+        val end = java.time.LocalTime.parse(w.end)
+        return if (start <= end) !t.isBefore(start) && t.isBefore(end) else !t.isBefore(start) || t.isBefore(end)
+    }
+}
+
 /** Outcome of one reconciliation pass. */
 data class ReconcileReport(
     val policyVersion: Int,
@@ -18,6 +29,7 @@ class Reconciler(
     private val platform: DevicePlatform,
     private val installer: PackageInstallerPort?,
     private val log: (String) -> Unit = {},
+    private val now: () -> java.time.Instant = java.time.Instant::now,
 ) {
     private var maintenance = false
 
@@ -56,8 +68,15 @@ class Reconciler(
             .filter { it.state == AppDesiredState.ALLOWED && it.artifact != null }
             .filter { a -> installed[a.packageName].let { it == null || it.versionCode < a.artifact!!.versionCode } }
             .sortedByDescending { it.packageName == policy.kiosk.launcherPackage }
+        val inWindow = MaintenanceWindows.isOpen(policy.system.maintenanceWindow, policy.system.timezone, now())
         for (a in toInstall) {
             if (installer == null) { err("apps.${a.packageName}", "installer unavailable"); continue }
+            val isUpdate = installed.containsKey(a.packageName)
+            // Never update an app under the guest's feet: wait for the maintenance window (first installs are immediate).
+            if (isUpdate && a.artifact!!.updateWindow == "MAINTENANCE" && !inWindow && a.packageName != policy.kiosk.launcherPackage) {
+                actions += "deferred update ${a.packageName}@${a.artifact.versionCode} until maintenance window"
+                continue
+            }
             installer.installOrUpdate(a.packageName, a.artifact!!)
                 .onSuccess { actions += "installed ${a.packageName}@${a.artifact.versionCode}" }
                 .onFailure { err("apps.${a.packageName}.install", it.message ?: "install failed") }

@@ -44,6 +44,9 @@ importers:
       drizzle-orm:
         specifier: 0.44.5
         version: 0.44.5(@types/pg@8.15.5)(pg@8.16.3)
+      express:
+        specifier: 5.1.0
+        version: 5.1.0
       jose:
         specifier: 6.1.0
         version: 6.1.0
@@ -131,6 +134,8 @@ importers:
       '@types/react-dom':
         specifier: 19.1.5
         version: 19.1.5(@types/react@19.1.6)
+
+  apps/provisioning-cli: {}
 
   packages/db:
     dependencies:

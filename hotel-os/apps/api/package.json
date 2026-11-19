@@ -20,6 +20,7 @@
     "@nestjs/platform-express": "11.1.6",
     "@node-rs/argon2": "2.0.2",
     "drizzle-orm": "0.44.5",
+    "express": "5.1.0",
     "jose": "6.1.0",
     "otpauth": "9.4.1",
     "pg": "8.16.3",

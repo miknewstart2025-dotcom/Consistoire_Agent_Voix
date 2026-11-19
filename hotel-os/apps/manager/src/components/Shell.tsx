@@ -30,6 +30,7 @@ export function Shell({ children }: { children: (me: Me) => React.ReactNode }) {
         <nav>
           <Link href="/hotels">{t("hotels")}</Link>
           {me.isPlatformAdmin && <Link href="/organizations">Organisations</Link>}
+          <Link href="/catalog">Catalogue APK</Link>
           <Link href="/hardware">Matériel</Link>
           <Link href="/tech">Technicien</Link>
         </nav>

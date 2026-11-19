@@ -7,7 +7,8 @@ const fullCaps: ModelCapabilities = { lockTaskSupported: true, persistentHomeSup
 const NETFLIX = "com.netflix.ninja";
 const YOUTUBE = "com.google.android.youtube.tv";
 
-function resolve(layers: ConfigLayer[], opts: Partial<{ caps: ModelCapabilities; modules: string[] }> = {}) {
+const ART = { versionCode: 7, versionName: "7", url: "https://x/a.apk", sha256: "a".repeat(64), signerSha256: "b".repeat(64), sizeBytes: 1, updateWindow: "MAINTENANCE" as const };
+function resolve(layers: ConfigLayer[], opts: Partial<{ caps: ModelCapabilities; modules: string[]; artifacts: Record<string, typeof ART> }> = {}) {
   return resolveEffectivePolicy({
     deviceId: DEVICE,
     version: 7,
@@ -15,7 +16,7 @@ function resolve(layers: ConfigLayer[], opts: Partial<{ caps: ModelCapabilities;
     layers,
     entitlements: { modules: opts.modules ?? [] },
     capabilities: opts.caps ?? fullCaps,
-    artifacts: {},
+    artifacts: opts.artifacts ?? {},
   });
 }
 const app = (r: ReturnType<typeof resolve>, pkg: string) => r.policy.apps.find((a) => a.packageName === pkg);
@@ -164,5 +165,13 @@ describe("resolveEffectivePolicy", () => {
     const b = resolve([...layers].reverse()).policy;
     expect(a).toEqual(b);
     expect(a.launcher.template).toBe("y");
+  });
+
+  it("deployed apps are allowed unless the hotel blocks them explicitly", () => {
+    const r = resolve([{ scopeType: "HOTEL", scopeId: "h", values: { apps: { "com.blocked.app": { state: "SUSPENDED" } } } }], {
+      artifacts: { "com.example.spa": ART, "com.blocked.app": ART },
+    });
+    expect(app(r, "com.example.spa")).toMatchObject({ state: "ALLOWED", visibleInLauncher: true, artifact: ART });
+    expect(app(r, "com.blocked.app")).toMatchObject({ state: "SUSPENDED", artifact: ART });
   });
 });

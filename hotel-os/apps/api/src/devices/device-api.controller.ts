@@ -46,7 +46,9 @@ export class DeviceApiController {
   @UseGuards(DeviceGuard)
   @HttpCode(204)
   async state(@CurrentDevice() d: DevicePrincipal, @Body() body: unknown) {
-    await this.devices.reportState(d, parse(DeviceStateReport, body));
+    const report = parse(DeviceStateReport, body);
+    await this.devices.reportState(d, report);
+    await this.devices.touchAfterState(d, report);
   }
 
   /** Polling fallback when the WebSocket is down. Returned commands are marked DELIVERED. */

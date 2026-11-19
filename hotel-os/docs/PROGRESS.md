@@ -12,6 +12,9 @@ Règle : rien n'est déclaré « validé » sans preuve. `[HW-REQUIRED]` = néce
 | Ingestion IPTV M3U/XMLTV (parseur en flux), attestation de droits, identifiants chiffrés AES-GCM jamais renvoyés, garde SSRF, numérotation stable, échec sans effacement | `apps/api` – 9 tests |
 | Logique du contrôleur : réconciliation (restrictions, kiosque, suspension → repli masquage, interdiction par défaut, ordre sûr HOME/launcher d'origine, maintenance), vérification de signature **d'une politique produite par le serveur TypeScript**, anti-rollback, JWT DER→P1363, nettoyage partiel honnête, commandes | `android/dpc-core` – 19 tests (Android simulé, voir `FakeDevicePlatform`) |
 | Logique IPTV boîtier : grille, zapping, saisie numérique, maintenant/ensuite, reprise | `android/iptv-core` – 4 tests |
+| Catalogue APK : analyse statique **sans outils Android** (ZIP, manifeste binaire, vérification cryptographique complète des signatures v2/v3 et du condensat du fichier), résultats identiques à l'outil officiel de Google (apksig) sur une vraie APK ; détection d'un octet modifié ; épinglage du certificat ; refus des applis « store only » (Netflix, YouTube…) ; attestation de droits de distribution ; stockage à l'identique | `apps/api/src/catalog` – 7 tests + `test/catalog-rollouts.test.ts` |
+| Déploiements progressifs : anneaux (ex. 5→25→100 %), succès mesuré par l'inventaire remonté, pause automatique sur taux d'échec, reprise, annulation (sans downgrade), filtre de compatibilité (SDK, ABI, downgrade, signature), boîtiers ajoutés après la fin, blocage possible par l'hôtel, « DEPLOY TO ALL HOTELS » (plateforme + confirmation écrite), téléchargement authentifié et reprenable | `test/catalog-rollouts.test.ts` – 9 tests |
+| Contrôleur : mises à jour différées à la fenêtre de maintenance de l'hôtel (y compris fenêtre à cheval sur minuit), premières installations immédiates | `android/dpc-core` – 21 tests au total |
 | Station de provisioning : plan ADB et interprétation des erreurs `dpm` | `apps/provisioning-cli` – 2 tests |
 | Parcours admin complet dans Chromium avec boîtier **simulé** | `e2e/admin-flow.e2e.cjs` + captures `e2e/screenshots/` |
 
@@ -38,7 +41,7 @@ Première action : `ANDROID_HOME=… gradle assembleDebug` et corriger les erreu
 ## Non implémenté (renvoie une erreur explicite, jamais un faux succès)
 
 - Commandes `UPLOAD_LOGS`, `ENTER_MAINTENANCE`, `EMERGENCY_BROADCAST`, `INSTALL_APP`/`UNINSTALL_APP` directes, `RUN_CERTIFICATION` (côté boîtier).
-- Catalogue APK : upload + analyse `apksigner`/`aapt2` + anneaux de déploiement (tables prêtes, API à faire — Phase 4).
+- Stockage APK : pilote disque local uniquement (pilote S3/CDN à brancher pour la production).
 - CMS / campagnes / Room Service / connecteurs PMS (Phase 6). Check-in/out **manuel** disponible.
 - Fan-out WebSocket multi-instances (Redis) et workers BullMQ : instance unique pour l'instant ; les boîtiers retombent sur le polling.
 - Écran QR graphique sur la TV (code texte affiché), suite d'auto-certification embarquée, purge RGPD planifiée, facturation.

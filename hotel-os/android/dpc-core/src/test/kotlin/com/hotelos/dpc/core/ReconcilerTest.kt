@@ -136,4 +136,30 @@ class ReconcilerTest {
         val r = Reconciler(p, inst).reconcile(Fixtures.policy)
         assertTrue(r.errors.any { it.key == "apps.com.hotelos.iptv.install" && it.message.contains("VERIFICATION") })
     }
+
+    @Test
+    fun `updates wait for the maintenance window, first installs and launcher do not`() = runTest {
+        val p = box().apply { add("com.hotelos.iptv", system = false, version = 5) }
+        val inst = FakeInstaller(p)
+        // Fixture timezone + window 03:00–05:00; 20:00 local is outside.
+        val tz = java.time.ZoneId.of(Fixtures.policy.system.timezone)
+        val evening = java.time.LocalDate.of(2026, 11, 19).atTime(20, 0).atZone(tz).toInstant()
+        val night = java.time.LocalDate.of(2026, 11, 20).atTime(3, 30).atZone(tz).toInstant()
+        val policy = Fixtures.policyWith { pol -> pol.copy(apps = pol.apps.map { if (it.artifact != null) it.copy(artifact = it.artifact.copy(updateWindow = "MAINTENANCE")) else it }) }
+        val r1 = Reconciler(p, inst, now = { evening }).reconcile(policy)
+        assertTrue(r1.actions.any { it.startsWith("deferred update com.hotelos.iptv") })
+        assertEquals(emptyList<String>(), inst.installs)
+        Reconciler(p, inst, now = { night }).reconcile(policy)
+        assertEquals(listOf("com.hotelos.iptv"), inst.installs)
+    }
+
+    @Test
+    fun `maintenance window wraps around midnight`() {
+        val w = MaintenanceWindow("23:00", "05:00")
+        fun at(h: Int) = java.time.LocalDate.of(2026, 1, 1).atTime(h, 0).atZone(java.time.ZoneOffset.UTC).toInstant()
+        assertTrue(MaintenanceWindows.isOpen(w, "UTC", at(23)))
+        assertTrue(MaintenanceWindows.isOpen(w, "UTC", at(2)))
+        assertFalse(MaintenanceWindows.isOpen(w, "UTC", at(5)))
+        assertFalse(MaintenanceWindows.isOpen(w, "UTC", at(12)))
+    }
 }

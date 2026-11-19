@@ -1,5 +1,9 @@
 import { type DynamicModule, Module } from "@nestjs/common";
 import { AuthModule } from "./auth/auth.module";
+import { CatalogController } from "./catalog/catalog.controller";
+import { CatalogService } from "./catalog/catalog.service";
+import { RolloutsService } from "./catalog/rollouts.service";
+import { StorageService } from "./catalog/storage.service";
 import { CommandsController } from "./commands/commands.controller";
 import { CommandsService } from "./commands/commands.service";
 import { CommonModule } from "./common/common.module";
@@ -41,8 +45,9 @@ export class AppModule {
         CommandsController,
         StaysController,
         IptvController,
+        CatalogController,
       ],
-      providers: [DeviceConnections, SigningService, PolicyService, CommandsService, DeviceAuthService, DeviceGuard, DevicesService, StaysService, DeviceGateway, SecretsService, IptvService],
+      providers: [DeviceConnections, SigningService, PolicyService, CommandsService, DeviceAuthService, DeviceGuard, DevicesService, StaysService, DeviceGateway, SecretsService, IptvService, StorageService, CatalogService, RolloutsService],
     };
   }
 }

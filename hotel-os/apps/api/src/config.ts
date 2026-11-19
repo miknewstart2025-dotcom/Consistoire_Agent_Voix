@@ -12,7 +12,10 @@ const Env = z.object({
   /** Public base URL devices use for the WebSocket (wss://…/device/v1/ws). */
   PUBLIC_WS_URL: z.string().default("ws://localhost:3001/device/v1/ws"),
   /** Base URL where APK objects are served (CDN). */
-  PUBLIC_DOWNLOAD_BASE: z.string().default("http://localhost:3001/downloads/"),
+  PUBLIC_DOWNLOAD_BASE: z.string().default("http://localhost:3001/device/v1/apk/"),
+  /** Local APK storage directory (filesystem driver). */
+  STORAGE_DIR: z.string().default(".storage"),
+  MAX_APK_MB: z.coerce.number().default(300),
   AUTH_REQUIRE_TOTP: z
     .string()
     .default("true")
