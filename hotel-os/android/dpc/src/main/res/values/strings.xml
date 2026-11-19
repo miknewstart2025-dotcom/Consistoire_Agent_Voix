@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HOTEL OS Controller</string>
+    <string name="admin_description">Manages this hotel TV box on behalf of the hotel.</string>
+</resources>

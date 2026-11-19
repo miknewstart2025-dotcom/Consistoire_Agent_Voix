@@ -1,0 +1,37 @@
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --text: #111827; --muted: #6b7280; --border: #e5e7eb;
+  --accent: #9a7b3f; --accent-text: #ffffff; --ok: #15803d; --warn: #b45309; --bad: #b91c1c; --chip: #f3f4f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b0f16; --panel: #121826; --text: #e5e7eb; --muted: #9ca3af; --border: #1f2937; --accent: #c8a96a; --accent-text: #111827; --chip: #1f2937; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+a { color: inherit; }
+header.top { display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--panel); position: sticky; top: 0; z-index: 2; }
+header.top .brand { font-weight: 700; letter-spacing: .04em; }
+header.top nav { display: flex; gap: 12px; flex: 1; }
+main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+h1 { font-size: 22px; margin: 0 0 16px; } h2 { font-size: 16px; margin: 0 0 12px; }
+table { width: 100%; border-collapse: collapse; } th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+.table-wrap { overflow-x: auto; }
+button, .btn { background: var(--accent); color: var(--accent-text); border: 0; border-radius: 6px; padding: 7px 12px; font: inherit; cursor: pointer; text-decoration: none; display: inline-block; }
+button.secondary { background: var(--chip); color: var(--text); }
+button.danger { background: var(--bad); color: #fff; }
+button:disabled { opacity: .5; cursor: default; }
+input, select, textarea { font: inherit; padding: 7px 9px; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); color: var(--text); }
+textarea { width: 100%; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+label { display: block; font-size: 12px; color: var(--muted); margin: 8px 0 4px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 16px; overflow-x: auto; }
+.tabs button { background: none; color: var(--muted); border-radius: 0; border-bottom: 2px solid transparent; }
+.tabs button.active { color: var(--text); border-bottom-color: var(--accent); }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; background: var(--chip); }
+.ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); } .muted { color: var(--muted); }
+.error { color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, transparent); padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.card { display: block; text-decoration: none; }
+.mono { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+@media (max-width: 640px) { header.top { flex-wrap: wrap; padding: 12px 16px; } main { padding: 16px; } }
